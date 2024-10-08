@@ -1,4 +1,6 @@
+
 from colorama import Fore, Style
+
 filnavn = "elever.txt"
 
 class elev:
@@ -12,18 +14,18 @@ class elev:
 
 def read_elever_from_file(filnavn):
     elever = []
-    with open(filnavn, "r") as file:
+    with open(filnavn, "r", encoding="utf-8") as file:
         for line in file:
             first, sist, kar = line.strip().split()
             elever.append(elev(first, sist, kar))
     return elever
 
 def write_elever_to_file(filnavn, elever):
-    with open(filnavn, "w") as file:
+    with open(filnavn, "w", encoding="utf-8") as file:
         for elev in elever:
             file.write(f"{elev.first} {elev.sist} {elev.kar}\n")
 
-elever = read_elever_from_file(filnavn)
+elever = read_elever_from_file(filnavn) # Read all students from the file
 
 new_elever = [
     elev('Henrik', 'Stubbeland', "5.5"),
@@ -37,6 +39,8 @@ new_elever = [
 for new_elev in new_elever:
     if new_elev.email not in [e.email for e in elever]:
         elever.append(new_elev)
+# Write all students back to the file
+write_elever_to_file(filnavn, elever)
 
 d = 0
 while d == 0:
@@ -53,7 +57,7 @@ while d == 0:
             spør = int(input("Hva vil du gjøre?\n"))
 
             if spør in [1, 2, 3]:  # For options 1, 2, and 3
-                spør_1 = int(input("Hvilken elev vil du printe ut? (1-5)\n"))
+                spør_1 = int(input(f"Hvilken elev vil du printe ut? (1-{len(elever)})\n"))
                 print(Fore.GREEN)
 
                 if 1 <= spør_1 <= len(elever):  # Check that the choice is within range
@@ -129,5 +133,4 @@ while d == 0:
         finally:
             print("")
 
-# Write all students back to the file
-write_elever_to_file(filnavn, elever)
+write_elever_to_file(filnavn, elever) #Write all students back to the file
