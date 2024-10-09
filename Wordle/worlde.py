@@ -12,10 +12,11 @@ with open("words_alpha.txt") as f:
             fil.write("\n")
 
 
-L = str([1, 2, 5,2,3,5,6,7,8,46,4,43,2435,6433,243,45])
+L = [1, 2, 5,2,3,5,6,7,8,46,4,43,2435,6433,243,45]
 Test = input("skriv tall:")
 
 for i in range(len(L)):
+    #L = str(L)
     if str(L).startswith(str(Test)) or str(L).startswith(Test):
-
-print(L)
+        print("hei")
+#print(L)
