@@ -3,19 +3,29 @@
 fil = open("words_5", "w")
 
 with open("words_alpha.txt") as f:
-    word = []
+    words = []
     for line in f:
         words_5 = line.strip()
         if len(words_5) == 5:
-            word.append(words_5.upper())
-            fil.write(words_5.upper())
+            words.append(words_5)
+            fil.write(words_5)
             fil.write("\n")
 
+fil.close()
+fjern = input("skriv bokstav:")
 
-L = [1, 2, 5,2,3,5,6,7,8,46,4,43,2435,6433,243,45]
-Test = input("skriv tall:")
 
-for i in L:
-    if str(i).startswith(Test):
-        print("hei")
-#print(L)
+
+
+#Fjerner ord som inneholder alt som skrives
+"""
+total_filtrert = [word for word in words if not any(letter in word for letter in fjern)]
+print(total_filtrert)
+"""
+
+
+#Fjerne ord som starter med bokstav
+"""
+word = [i for i in word if not str(i).startswith(fjern)]
+print(word)
+"""
