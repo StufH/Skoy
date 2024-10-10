@@ -19,7 +19,7 @@ grønn = str(input("skriv alle grønne bokstaver med posisjon (f.eks. a1b3): "))
 for pos in range(0, len(grønn), 2):
     letter = grønn[pos]
     position = int(grønn[pos + 1]) - 1
-    words = [word for word in words if word[position] == letter]s
+    words = [word for word in words if word[position] == letter]
 
 
 gul = str(input("skriv alle gule bokstaver med posisjon: "))
