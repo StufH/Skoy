@@ -12,16 +12,32 @@ with open("words_alpha.txt") as f:
             fil.write("\n")
 
 fil.close()
-fjern = input("skriv bokstav:")
+
+
+
+grønn = str(input("skriv alle grønne bokstaver med posisjon (f.eks. a1b3)"))
+for pos in range(0, len(grønn), 2):
+    letter = grønn[pos]
+    position = int(grønn[pos + 1]) - 1
+    words = [word for word in words if word[position] == letter]
+
+
+gul = str(input("skriv alle gule bokstaver"))
+
+
+
+grå = str(input("skriv alle grå bokstaver:"))
+words = [word for word in words if not any(letter in word for letter in grå)]
+print(words)
 
 
 
 
-#Fjerner ord som inneholder alt som skrives
-"""
-total_filtrert = [word for word in words if not any(letter in word for letter in fjern)]
-print(total_filtrert)
-"""
+
+
+
+
+
 
 
 #Fjerne ord som starter med bokstav
