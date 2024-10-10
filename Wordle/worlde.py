@@ -1,4 +1,4 @@
-#from sympy.stats.rv import probability
+from sympy.stats.rv import probability
 
 fil = open("words_5", "w")
 
@@ -35,6 +35,14 @@ for pos in range(0, len(gul), 2):
     position3 = int(gul[pos + 1]) - 1
     words = [word for word in words if not any(letter in word for letter in grå) and word for word in words if not word[position2] == letter2]
 print(words)
+
+
+
+#Testing testing testing testging
+
+
+
+
 
 
 
