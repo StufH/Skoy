@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 
 # Load words from file
-with open('words_alpha.txt') as f:
+with open('../Wordle/words_alpha.txt') as f:
     words = [line.strip() for line in f if len(line.strip()) == 5]
 
 def filter_words():
