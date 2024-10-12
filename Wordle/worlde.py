@@ -15,3 +15,4 @@ for let in range(0, len(green), 2): #Saves letters and position
     position[letter_green] = position_green
     words = [word for word in words if word[position_green] == letter_green]
 
+
