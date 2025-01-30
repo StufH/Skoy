@@ -8,16 +8,20 @@ class elev:
         self.sist = sist
         self.fullname = first + " " + sist
         self.kar = kar
-        self.email = first + sist + '@elev.skole.no'
+        self.email = str.lower(first) + str.lower(sist) + '@elev.skole.no'
         self.alt = self.fullname + " " + self.email + " " + kar
 
 def read_elever_from_file(filnavn):
-    elever = []
-    with open(filnavn, "r", encoding="utf-8") as file:
-        for line in file:
-            first, sist, kar = line.strip().split()
-            elever.append(elev(first, sist, kar))
-    return elever
+        elever = []
+        with open(filnavn, "r", encoding="utf-8") as file:
+            for line in file:
+                parts = line.strip().split()
+                if len(parts) == 3:
+                    first, sist, kar = parts
+                    elever.append(elev(first, sist, kar))
+                else:
+                    print(f"Skipping invalid line: {line.strip()}")
+        return elever
 
 def write_elever_to_file(filnavn, elever):
     with open(filnavn, "w", encoding="utf-8") as file:
