@@ -1,0 +1,9 @@
+﻿AgeGroup,ParticipantID,ImageType,ImageName,Spm1,Spm2,Spm3
+16-21,Jente 18,Menneske,Kjedsomhet,kaos,3,4
+16-21,Jente 18,KI,Kjedsomhet,Fred,4,8
+30-50,Kvinne 36,Menneske,Kjedsomhet,Sinne,5,3
+30-50,Kvinne 36,KI,Kjedsomhet,Nostalgi,7,9
+30-50,Mann 38,Menneske,Sinne,Krig/frykt,2,5
+30-50,Mann 38,KI,Sinne,Frykt,2,5
+30-50,Mann 50,Menneske,Nostalgi,Nyskjerrighet,8,2
+30-50,Mann 50,KI,Nostalgi,Avslappet,4,4
