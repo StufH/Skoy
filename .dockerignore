@@ -1,0 +1,25 @@
+# Ignore Python caches and venvs
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+ENV/
+.env
+
+# Git
+.git/
+.gitignore
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE
+.vscode/
+.idea/
+
+# Local storage output (will be created at runtime in container)
+Russekort/backend/storage/
+

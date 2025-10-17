@@ -1,0 +1,4 @@
+# Optional; only needed for rendering/evaluation
+pygame>=2.6.0
+
+

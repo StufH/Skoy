@@ -1,0 +1,27 @@
+services:
+  russekort:
+    build: .
+    container_name: russekort
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - PUBLIC_BASE_URL=https://example.com
+      - ALLOWED_ORIGINS=https://example.com
+      - ALLOWED_HOSTS=example.com,localhost,127.0.0.1
+      - MAX_CONTENT_LENGTH_MB=10
+    volumes:
+      - russekort_storage:/app/Russekort/backend/storage
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request as u;print(u.urlopen('http://localhost:8080/api/health').read())"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+
+volumes:
+  russekort_storage:
+    driver: local

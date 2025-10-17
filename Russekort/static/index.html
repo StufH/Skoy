@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Russekort Maker</title>
+  <link rel="stylesheet" href="static/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Russekort Maker</h1>
+    <nav>
+      <button data-tab="create">Lag kort</button>
+      <button data-tab="scanner">Skann</button>
+      <button data-tab="album">Album</button>
+      <button data-tab="top">Top 10</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="tab-create" class="tab">
+      <div class="grid">
+        <form id="create-form">
+          <h2>Design</h2>
+          <label>
+            Navn
+            <input type="text" name="display_name" placeholder="Ola Nordmann" />
+          </label>
+          <label>
+            Russens tittel
+            <input type="text" name="russ_title" placeholder="Russepresident 2025" />
+          </label>
+          <label>
+            Linje
+            <input type="text" name="line" placeholder="Studiespes" />
+          </label>
+          <label>
+            Sitat / motto
+            <input type="text" name="quote" placeholder="Aldri gi opp" />
+          </label>
+          <fieldset>
+            <legend>Kontakt</legend>
+            <label>Snapchat <input type="text" name="snapchat" placeholder="@bruker" /></label>
+            <label>Instagram <input type="text" name="instagram" placeholder="@bruker" /></label>
+            <label>Telefon <input type="text" name="phone" placeholder="12345678" /></label>
+          </fieldset>
+
+          <div class="row">
+            <label>Bakgrunnsfarge <input type="color" name="bg_color" value="#f44336" /></label>
+            <label>Tekstfarge <input type="color" name="text_color" value="#ffffff" /></label>
+          </div>
+          <label>
+            Font
+            <select name="font">
+              <option>Arial</option>
+              <option>Verdana</option>
+              <option>Tahoma</option>
+              <option>Georgia</option>
+              <option>Courier New</option>
+              <option>Impact</option>
+            </select>
+          </label>
+
+          <label>
+            Bilde (frivillig)
+            <input type="file" name="image" accept="image/*" />
+          </label>
+
+          <div class="stickers">
+            <h3>Klistremerker / Emoji</h3>
+            <div class="palette" id="emoji-palette">
+              <button type="button" data-emoji="🎉">🎉</button>
+              <button type="button" data-emoji="🔥">🔥</button>
+              <button type="button" data-emoji="😎">😎</button>
+              <button type="button" data-emoji="💥">💥</button>
+              <button type="button" data-emoji="💯">💯</button>
+              <button type="button" data-emoji="🎈">🎈</button>
+              <button type="button" data-emoji="⭐">⭐</button>
+            </div>
+            <p>Dra emoji rundt i forhåndsvisningen.</p>
+          </div>
+
+          <button type="submit" class="primary">Lagre kort</button>
+          <p id="create-status"></p>
+        </form>
+
+        <div class="preview">
+          <h2>Forhåndsvisning</h2>
+          <div class="card-stage">
+            <canvas id="card-canvas" width="600" height="350"></canvas>
+            <div id="emoji-layer" class="emoji-layer" aria-hidden="true"></div>
+          </div>
+          <button id="download-png" type="button">Last ned PNG</button>
+          <div id="created-result" class="result hidden"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab-scanner" class="tab hidden">
+      <h2>Skann QR</h2>
+      <div id="scanner-support" class="info"></div>
+      <video id="preview" playsinline></video>
+      <div class="row">
+        <button id="start-scan" type="button">Start kamera</button>
+        <button id="stop-scan" type="button">Stopp</button>
+      </div>
+      <div id="scan-result"></div>
+    </section>
+
+    <section id="tab-album" class="tab hidden">
+      <h2>Mitt album</h2>
+      <div id="album-grid" class="album-grid"></div>
+    </section>
+
+    <section id="tab-top" class="tab hidden">
+      <h2>Top 10 mest skannede</h2>
+      <div id="top-list" class="top-list"></div>
+    </section>
+
+    <section id="tab-card" class="tab hidden">
+      <div id="card-view"></div>
+    </section>
+  </main>
+
+  <footer>
+    <small>© 2025 Russekort Digital</small>
+  </footer>
+  <script src="config.js"></script>
+  <script src="static/app.js"></script>
+</body>
+</html>
